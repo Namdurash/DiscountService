@@ -1,0 +1,9 @@
+{
+    "app_id": "discountapp-eybcd",
+    "config_version": 20210101,
+    "name": "DiscountApp",
+    "location": "IE",
+    "provider_region": "aws-eu-west-1",
+    "deployment_model": "GLOBAL",
+    "environment": "development"
+}

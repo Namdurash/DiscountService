@@ -7,7 +7,7 @@ import {Header} from '../../components/Header/Header';
 import {BasketItem} from './components/BasketItem/BasketItem';
 import {Footer} from '../../components/Footer/Footer';
 
-export const Basket: React.FC = () => {
+export const Basket: React.FC = ({navigation}: any) => {
   return (
     <>
       <Header headerHeight={60} />
@@ -18,7 +18,7 @@ export const Basket: React.FC = () => {
         <BasketItem title="Xiaomi Mi Smart Band 6" />
         <BasketItem title="Настольное крепление для..." />
       </ScrollView>
-      <Footer />
+      <Footer navigation={navigation} />
     </>
   );
 };

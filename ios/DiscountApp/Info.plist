@@ -77,6 +77,11 @@
 		<string>RalewayLight.ttf</string>
 		<string>RalewayRegular.ttf</string>
 		<string>RalewayThin.ttf</string>
+		<string>PtsansBold.ttf</string>
+		<string>PTSansBoldItalic.ttf</string>
+		<string>PTSansItalic.ttf</string>
+		<string>PTSansRegular.ttf</string>
+		<string>PTSansBold.ttf</string>
 	</array>
 </dict>
 </plist>

@@ -1,13 +1,14 @@
 import * as React from 'react';
 import {Text, TextInput, View} from 'react-native';
 
-import {Button} from '@rneui/base';
-
 import {styles} from './styles';
 
-import {Header} from '../../components/Header/Header';
+import {Header} from '../../components';
+import {Button} from '../../components';
+import {useAuth} from './useAuth';
 
 export const Auth: React.FC = () => {
+  const {onGoHome} = useAuth();
   return (
     <>
       <Header headerHeight={70} />
@@ -17,7 +18,7 @@ export const Auth: React.FC = () => {
           <TextInput style={styles.input} placeholder="Your email" />
           <TextInput style={styles.input} placeholder="Your password" />
         </View>
-        <Button title="SIGN IN" style={styles.button} />
+        <Button title="SIGN IN" type="secondary" onPress={onGoHome} />
       </View>
     </>
   );

@@ -11,13 +11,9 @@ export const styles = StyleSheet.create({
     color: '#907878',
     fontSize: 34,
     shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 10,
-    },
-    shadowOpacity: 0.12,
-    shadowRadius: 160,
-    elevation: 25,
+    textShadowColor: 'rgba(0, 0, 0, 0.75)',
+    textShadowOffset: {width: -1, height: 3},
+    textShadowRadius: 7,
   },
   searchBar: {
     flexDirection: 'row',

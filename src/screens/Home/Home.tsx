@@ -1,57 +1,35 @@
 import * as React from 'react';
-import {ScrollView} from 'react-native';
+import {FlatList} from 'react-native';
 
 import {styles} from './styles';
 
 import {Header} from '../../components/Header/Header';
 import {DiscountCard} from './components/DiscountCard/DiscountCard';
 import {Footer} from '../../components/Footer/Footer';
+import {useHome} from './useHome';
 
-export const Home: React.FC = () => {
+interface ProductListItem {
+  item: ProductEntity.Product;
+}
+
+const renderDiscountCards = ({item}: ProductListItem) => {
+  return <DiscountCard product={item} />;
+};
+
+export const Home: React.FC = ({navigation}: any) => {
+  const {products} = useHome();
+  console.log(products);
   return (
     <>
       <Header headerHeight={112} isSearchInput={true} />
-      <ScrollView
+      <FlatList
+        data={products}
+        renderItem={renderDiscountCards}
         contentContainerStyle={styles.wrapper}
-        style={styles.container}>
-        <DiscountCard
-          title="Online English courses with..."
-          discountPercentage="15%"
-          amount={8}
-          price="299UAH"
-        />
-        <DiscountCard
-          title="Xiaomi Mi Smart Band 6"
-          discountPercentage="5%"
-          amount={15}
-          price="600UAH"
-        />
-        <DiscountCard
-          title="Настольное крепление для..."
-          discountPercentage="35%"
-          amount={4}
-          price="764UAH"
-        />
-        <DiscountCard
-          title="Ноутбук ASUS Laptop X415..."
-          discountPercentage="15%"
-          amount={10}
-          price="16 499UAH"
-        />
-        <DiscountCard
-          title="Mонитор 31.5 Samsung Odyssey..."
-          discountPercentage="4%"
-          amount={23}
-          price="10 599UAH"
-        />
-        <DiscountCard
-          title="Ноутбук Apple MacBook Pro..."
-          discountPercentage="2%"
-          amount={2}
-          price="100 999UAH"
-        />
-      </ScrollView>
-      <Footer />
+        keyExtractor={item => item.id}
+        style={styles.container}
+      />
+      <Footer navigation={navigation} />
     </>
   );
 };

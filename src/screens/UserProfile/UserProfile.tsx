@@ -7,7 +7,7 @@ import {styles} from './styles';
 
 import {Footer} from '../../components/Footer/Footer';
 
-export const UserProfile: React.FC = () => {
+export const UserProfile: React.FC = ({navigation}: any) => {
   return (
     <>
       <View style={styles.header}>
@@ -34,7 +34,7 @@ export const UserProfile: React.FC = () => {
         </View>
       </View>
       <Text style={styles.signOutText}>Sign me out</Text>
-      <Footer />
+      <Footer navigation={navigation} />
     </>
   );
 };

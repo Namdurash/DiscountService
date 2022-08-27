@@ -1,29 +1,28 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * Generated with the TypeScript template
- * https://github.com/react-native-community/react-native-template-typescript
- *
- * @format
- */
-
+import 'react-native-gesture-handler';
 import React from 'react';
-
-import {Auth} from './src/screens/Auth';
-import {Basket} from './src/screens/Basket/Basket';
-import {Home} from './src/screens/Home/Home';
-import {UserProfile} from './src/screens/UserProfile/UserProfile';
+import {NavigationContainer} from '@react-navigation/native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
+
+import {ScreenStack} from './src/navigation';
+import {RootProvider} from './src/store/createRootProvider';
+
+const ConnectedApp: React.FC = () => {
+  const navigationRef = React.useRef<any>();
+
+  return (
+    <NavigationContainer ref={navigationRef}>
+      <ScreenStack navigation={navigationRef.current} />
+    </NavigationContainer>
+  );
+};
 
 const App = () => {
   return (
-    <SafeAreaProvider>
-      <UserProfile />
-      {/* <Basket /> */}
-      {/* <Home /> */}
-      {/* <Auth /> */}
-    </SafeAreaProvider>
+    <RootProvider>
+      <SafeAreaProvider>
+        <ConnectedApp />
+      </SafeAreaProvider>
+    </RootProvider>
   );
 };
 
