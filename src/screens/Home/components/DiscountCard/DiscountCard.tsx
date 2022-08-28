@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Text, View, Image, TouchableOpacity} from 'react-native';
+import {Text, View, Image, TouchableWithoutFeedback} from 'react-native';
 
 import {useDiscountCard} from './useDiscountCard';
 
@@ -10,21 +10,21 @@ interface ProductCardProps {
 }
 
 export const DiscountCard: React.FC<ProductCardProps> = ({product}) => {
-  const {title, stock, price, discountPercentage, images, id} = product;
-  const {onGoToProductDetails} = useDiscountCard(id);
+  const {stock, price, images, id} = product;
+  const {onGoToProductDetails, priceWithDiscount, formattedTitle} =
+    useDiscountCard({id, product});
   const formattedPrice = `$${price}`;
   const formattedStock = `${stock} in stock`;
-  const priceWithDiscount = Math.round((price * discountPercentage) / 100);
   const formattedDiscountPrice = `$${priceWithDiscount}`;
 
   return (
-    <TouchableOpacity onPress={onGoToProductDetails}>
+    <TouchableWithoutFeedback onPress={onGoToProductDetails}>
       <View style={styles.container}>
         <View style={styles.imageWrapper}>
           <Image source={{uri: images[0]}} style={styles.image} />
         </View>
         <View style={styles.detailsWrapper}>
-          <Text style={styles.textTitle}>{title}</Text>
+          <Text style={styles.textTitle}>{formattedTitle}</Text>
           <Text>
             <Text style={styles.textStock}>{formattedStock}</Text>
           </Text>
@@ -34,6 +34,6 @@ export const DiscountCard: React.FC<ProductCardProps> = ({product}) => {
           <Text style={styles.textPrice}>{formattedPrice}</Text>
         </View>
       </View>
-    </TouchableOpacity>
+    </TouchableWithoutFeedback>
   );
 };

@@ -4,7 +4,7 @@ import {FlatList} from 'react-native';
 import {styles} from './styles';
 
 import {Header} from '../../components/Header/Header';
-import {DiscountCard} from './components/DiscountCard/DiscountCard';
+import {DiscountCard} from './components';
 import {Footer} from '../../components/Footer/Footer';
 import {useHome} from './useHome';
 

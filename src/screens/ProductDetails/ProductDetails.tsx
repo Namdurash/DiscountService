@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {View, Text} from 'react-native';
+import {Header} from '../../components';
 import {useProductDetails} from './useProductDetails';
 
 export const ProductDetails: React.FC = () => {
@@ -17,6 +18,7 @@ export const ProductDetails: React.FC = () => {
 
   return (
     <View>
+      <Header />
       <Text>{title}</Text>
     </View>
   );

@@ -9,6 +9,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 20,
     borderRadius: 25,
+    marginBottom: 20,
   },
   imageWrapper: {
     marginLeft: 10,
@@ -20,14 +21,14 @@ export const styles = StyleSheet.create({
     height: 70,
   },
   detailsWrapper: {
-    width: 170,
+    width: 165,
     height: 75,
     flexDirection: 'column',
     justifyContent: 'space-between',
     marginRight: 10,
   },
   textTitle: {
-    fontSize: 24,
+    fontSize: 20,
     fontFamily: 'PTSansBold',
     color: '#433413',
   },
@@ -37,8 +38,9 @@ export const styles = StyleSheet.create({
     color: '#907878',
   },
   percentageWrapper: {
-    width: 55,
+    width: 70,
     height: '70%',
+    alignItems: 'flex-end',
   },
   textPercentage: {
     fontSize: 24,
