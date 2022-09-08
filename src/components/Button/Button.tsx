@@ -15,12 +15,13 @@ interface ButtonProps extends TouchableOpacityProps {
 export const Button: React.FC<ButtonProps> = ({
   title,
   type,
+  style: touchableStyles,
   ...touchableProps
 }) => {
   if (type === 'secondary') {
     return (
       <TouchableOpacity
-        style={[styles.wrapperSecondary, styles.button]}
+        style={[styles.wrapperSecondary, styles.button, touchableStyles]}
         {...touchableProps}>
         <Text style={styles.textSecondary}>{title}</Text>
       </TouchableOpacity>
@@ -29,7 +30,7 @@ export const Button: React.FC<ButtonProps> = ({
 
   return (
     <TouchableOpacity
-      style={[styles.wrapperPrimary, styles.button]}
+      style={[styles.wrapperPrimary, styles.button, touchableStyles]}
       {...touchableProps}>
       <Text style={styles.textPrimary}>{title}</Text>
     </TouchableOpacity>

@@ -1,5 +1,8 @@
+import * as React from 'react';
 import {useProductListingStore} from '../../store/productListing/hooks';
 import * as Navigation from '@react-navigation/native';
+import {Animated} from 'react-native';
+import {TextManager} from '@managers/TextManager';
 
 interface ProductDetailsRoute {
   key: string;
@@ -16,19 +19,31 @@ export const useProductDetails = () => {
   const {id = ''} = route.params || {};
   const {products} = useProductListingStore();
   const productId = Number(id);
-  const currentProduct: ProductEntity.Product =
+  const product: ProductEntity.Product =
     products[productId - SHOW_CURRENT_PRODUCT];
+  const liftAnim = React.useRef(new Animated.Value(400)).current;
+  const priceWithDiscount = Math.round(
+    product.price - (product.price / 100) * product.discountPercentage,
+  );
+
+  Animated.timing(liftAnim, {
+    toValue: 0,
+    duration: 2000,
+    useNativeDriver: true,
+  }).start();
 
   return {
-    title: currentProduct.title,
-    description: currentProduct.description,
-    price: currentProduct.price,
-    discountPercentage: currentProduct.discountPercentage,
-    rating: currentProduct.rating,
-    stock: currentProduct.stock,
-    brand: currentProduct.brand,
-    category: currentProduct.category,
-    thumbnail: currentProduct.thumbnail,
-    images: currentProduct.images,
+    title: product.title,
+    description: product.description,
+    price: TextManager.formatPrice(product.price),
+    discountPercentage: product.discountPercentage,
+    rating: product.rating,
+    stock: product.stock,
+    brand: product.brand,
+    category: product.category,
+    thumbnail: product.thumbnail,
+    images: product.images,
+    liftAnim,
+    priceWithDiscount,
   };
 };

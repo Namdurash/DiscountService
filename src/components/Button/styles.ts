@@ -4,8 +4,6 @@ import {colors} from '../../ui/color';
 export const styles = StyleSheet.create({
   button: {
     borderRadius: 25,
-    width: 209,
-    height: 40,
     justifyContent: 'center',
     alignItems: 'center',
   },
