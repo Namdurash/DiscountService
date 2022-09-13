@@ -9,6 +9,7 @@ import {UserProfile} from '../screens/UserProfile/UserProfile';
 import {ProductDetails} from '../screens/ProductDetails';
 import {RootStackParamList} from './types';
 import {Routes} from './routes.types';
+import {SignUp} from '@screens/SignUp';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -27,5 +28,6 @@ export const ScreenStack: React.FC<Props> = () => (
     <Stack.Screen name={Routes.Basket} component={Basket} />
     <Stack.Screen name={Routes.UserProfile} component={UserProfile} />
     <Stack.Screen name={Routes.ProductDetails} component={ProductDetails} />
+    <Stack.Screen name={Routes.SignUp} component={SignUp} />
   </Stack.Navigator>
 );

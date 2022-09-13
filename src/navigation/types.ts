@@ -6,4 +6,5 @@ export type RootStackParamList = {
   [Routes.Home]: undefined;
   [Routes.UserProfile]: undefined;
   [Routes.ProductDetails]: undefined;
+  [Routes.SignUp]: undefined;
 };

@@ -11,7 +11,12 @@ export const useAuth = () => {
     navigation.navigate(Routes.Home);
   }, []);
 
+  const handleGoSignUp = React.useCallback(() => {
+    navigation.navigate(Routes.SignUp);
+  }, []);
+
   return {
     onGoHome: handleGoHome,
+    onGoSignUp: handleGoSignUp,
   };
 };

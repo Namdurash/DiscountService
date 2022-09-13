@@ -8,7 +8,7 @@ import {Button} from '../../components';
 import {useAuth} from './useAuth';
 
 export const Auth: React.FC = () => {
-  const {onGoHome} = useAuth();
+  const {onGoHome, onGoSignUp} = useAuth();
   return (
     <>
       <Header headerHeight={70} />
@@ -18,7 +18,20 @@ export const Auth: React.FC = () => {
           <TextInput style={styles.input} placeholder="Your email" />
           <TextInput style={styles.input} placeholder="Your password" />
         </View>
-        <Button title="SIGN IN" type="secondary" onPress={onGoHome} />
+        <View style={styles.buttonWrapper}>
+          <Button
+            title="SIGN IN"
+            type="secondary"
+            onPress={onGoHome}
+            style={styles.button}
+          />
+          <Button
+            title="SIGN UP"
+            type="secondary"
+            onPress={onGoSignUp}
+            style={styles.button}
+          />
+        </View>
       </View>
     </>
   );

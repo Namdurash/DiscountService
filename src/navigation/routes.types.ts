@@ -4,4 +4,5 @@ export enum Routes {
   Basket = 'Basket',
   UserProfile = 'UserProfile',
   ProductDetails = 'ProductDetails',
+  SignUp = 'SignUp',
 }

@@ -38,8 +38,15 @@ export const styles = StyleSheet.create({
     elevation: 25,
   },
   button: {
-    backgroundColor: '#907878',
-    borderRadius: 25,
     marginTop: 15,
+
+    width: 120,
+    height: 40,
+  },
+  buttonWrapper: {
+    width: '70%',
+
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
 });
