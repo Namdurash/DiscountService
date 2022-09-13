@@ -1,27 +1,13 @@
 import * as React from 'react';
-import {CREATE_USER, useGetAllUsers, useRemoveUser} from '@api/user';
-import {useMutation} from '@apollo/client';
+import {useCreateUser, useGetAllUsers, useRemoveUser} from '@api/user';
 
 export const useSignUp = () => {
-  const [newUser] = useMutation(CREATE_USER);
   const [username, setUsername] = React.useState('');
   const [age, setAge] = React.useState(0);
+  const [userId, setUserId] = React.useState('1');
   const {users, loadingUsers} = useGetAllUsers();
-  const {removedUserData, removeUser, loadingRemoveUser} = useRemoveUser('1');
-
-  const addUser = () => {
-    console.log(username, age);
-    newUser({
-      variables: {
-        input: {
-          username,
-          age,
-        },
-      },
-    }).then(({data}) => {
-      console.log(data);
-    });
-  };
+  const {removedUserData, removeUser, loadingRemoveUser} = useRemoveUser(userId);
+  const {addUser} = useCreateUser({username, age});
 
   const onChangeUsername = (inputUsername: string) => {
     setUsername(inputUsername);
@@ -30,6 +16,10 @@ export const useSignUp = () => {
   const onChangeAge = React.useCallback((inputAge: string) => {
     setAge(+inputAge);
   }, []);
+
+  const onChangeUserId = (inputUserId: string) => {
+    setUserId(inputUserId);
+  };
 
   React.useEffect(() => {
     console.log(loadingRemoveUser);
@@ -47,5 +37,6 @@ export const useSignUp = () => {
     removeUser,
     removedUserData,
     loadingRemoveUser,
+    onChangeUserId,
   };
 };

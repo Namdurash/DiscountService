@@ -3,7 +3,7 @@ import {REMOVE_USER, GET_ALL_USERS} from '@api/user';
 
 export const useRemoveUser = (userId: string) => {
   const [removeUserGQL, {data, loading}] = useMutation(REMOVE_USER, {
-    refetchQueries: [{query: GET_ALL_USERS}, 'getAllUsers'],
+    refetchQueries: [{query: GET_ALL_USERS}],
   });
 
   const removeUser = () => {

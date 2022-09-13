@@ -7,6 +7,7 @@
     "ios": "react-native run-ios",
     "start": "npx react-native start",
     "start-no-cache": "npx react-native start --reset-cache",
+    "start-mock-server": "cd mock_server && nodemon index.ts",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "link-assets": "npx react-native link"
