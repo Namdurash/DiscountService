@@ -1,9 +1,8 @@
-import * as React from 'react';
 import {useAppDispatch} from '../../hooks';
-import {getProducts} from '../actionCreator';
+import {fetchProducts} from '../fetchProducts';
 
 export const useGetProductListing = () => {
   const dispatch = useAppDispatch();
 
-  return dispatch(getProducts());
+  return dispatch(fetchProducts());
 };
