@@ -25,12 +25,12 @@ export const Auth: React.FC = () => {
             onPress={onGoHome}
             style={styles.button}
           />
-          <Button
+          {/* <Button
             title="SIGN UP"
             type="secondary"
             onPress={onGoSignUp}
             style={styles.button}
-          />
+          /> */}
         </View>
       </View>
     </>

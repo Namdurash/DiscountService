@@ -1,38 +1,12 @@
 import {Text} from '@ui/Text';
 import * as React from 'react';
-import {FlatList, TextInput, View} from 'react-native';
+import {TextInput, View} from 'react-native';
 
-import {useSignUp} from './useSignUp';
 import {styles} from './styles';
 import {Button} from '@components/Button';
 import {Header} from '@components/Header';
 
-interface RenderUsers {
-  item: {
-    id: string;
-    username: string;
-  };
-}
-
-const renderUsers = ({item}: RenderUsers) => {
-  return (
-    <Text family="raleway" type="Bold" size={34}>
-      {`${item.username}: ${item.id}`}
-    </Text>
-  );
-};
-
 export const SignUp: React.FC = () => {
-  const {
-    users,
-    loadingUsers,
-    onChangeUsername,
-    onChangeAge,
-    addUser,
-    removeUser,
-    onChangeUserId,
-  } = useSignUp();
-
   return (
     <View style={styles.wrapper}>
       <Header headerHeight={60} />
@@ -40,7 +14,7 @@ export const SignUp: React.FC = () => {
         Sign Up
       </Text>
       <View style={styles.inputWrapper}>
-        <TextInput
+        {/* <TextInput
           onChangeText={onChangeUsername}
           style={styles.input}
           placeholder="Username"
@@ -56,10 +30,10 @@ export const SignUp: React.FC = () => {
           style={styles.input}
           placeholder="Remove user by user id"
           keyboardType="numeric"
-        />
+        /> */}
       </View>
       <View style={styles.buttonWrapper}>
-        <Button
+        {/* <Button
           title="Submit"
           type="primary"
           onPress={addUser}
@@ -70,15 +44,8 @@ export const SignUp: React.FC = () => {
           type="primary"
           onPress={removeUser}
           style={styles.button}
-        />
+        /> */}
       </View>
-      {!loadingUsers && (
-        <FlatList
-          data={users}
-          renderItem={renderUsers}
-          style={styles.usersList}
-        />
-      )}
     </View>
   );
 };
