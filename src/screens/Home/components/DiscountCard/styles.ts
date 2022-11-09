@@ -54,4 +54,10 @@ export const styles = StyleSheet.create({
     opacity: 0.6,
     textAlign: 'right',
   },
+  button: {
+    marginTop: 15,
+
+    width: 120,
+    height: 40,
+  },
 });

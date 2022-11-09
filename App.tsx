@@ -4,7 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 import {ScreenStack} from './src/navigation';
-import {RootProvider} from './src/store/createRootProvider';
+import {RootProvider} from './src/store/RootProvider';
 
 const ConnectedApp: React.FC = () => {
   const navigationRef = React.useRef<any>();

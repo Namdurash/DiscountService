@@ -4,6 +4,7 @@ import {Text, View, Image, TouchableWithoutFeedback} from 'react-native';
 import {useDiscountCard} from './useDiscountCard';
 
 import {styles} from './styles';
+import {Button} from '@components/Button';
 
 interface ProductCardProps {
   product: ProductEntity.Product;
@@ -11,8 +12,12 @@ interface ProductCardProps {
 
 export const DiscountCard: React.FC<ProductCardProps> = ({product}) => {
   const {stock, price, images, id} = product;
-  const {onGoToProductDetails, priceWithDiscount, formattedTitle} =
-    useDiscountCard({id, product});
+  const {
+    onGoToProductDetails,
+    priceWithDiscount,
+    formattedTitle,
+    addProductToBasket,
+  } = useDiscountCard({id, product});
   const formattedPrice = `$${price}`;
   const formattedStock = `${stock} in stock`;
   const formattedDiscountPrice = `$${priceWithDiscount}`;
@@ -33,6 +38,12 @@ export const DiscountCard: React.FC<ProductCardProps> = ({product}) => {
           <Text style={styles.textPercentage}>{formattedDiscountPrice}</Text>
           <Text style={styles.textPrice}>{formattedPrice}</Text>
         </View>
+        <Button
+          title="TAKE A DISCOUNT"
+          type="secondary"
+          onPress={addProductToBasket}
+          style={styles.button}
+        />
       </View>
     </TouchableWithoutFeedback>
   );

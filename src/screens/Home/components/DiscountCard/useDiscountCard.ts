@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as Navigation from '@react-navigation/native';
 import {Routes} from '../../../../navigation/routes.types';
+import {useRemoveProduct} from '@store/productListing/hooks';
 
 interface DiscountCardProps {
   id: string;
@@ -9,13 +10,12 @@ interface DiscountCardProps {
 
 export const useDiscountCard = ({id, product}: DiscountCardProps) => {
   const navigation = Navigation.useNavigation();
-  console.log(id);
+  const removeProduct = useRemoveProduct(+id);
   const navigateToProductDetails = React.useCallback(() => {
-    console.log('Work');
     navigation.navigate(Routes.ProductDetails, {
       id,
     });
-  }, []);
+  }, [id, navigation]);
   const {price, discountPercentage, title} = product;
   const priceWithDiscount = Math.round(
     price - (price / 100) * discountPercentage,
@@ -24,6 +24,7 @@ export const useDiscountCard = ({id, product}: DiscountCardProps) => {
 
   return {
     onGoToProductDetails: navigateToProductDetails,
+    addProductToBasket: removeProduct,
     priceWithDiscount,
     formattedTitle,
   };
